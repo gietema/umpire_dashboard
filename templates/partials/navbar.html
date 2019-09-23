@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="row justify-content-md-center">
+    <div class="col col-sm-12 col-md-10">
+      <nav class="navbar navbar-expand-lg navbar-light">
+          <a class="navbar-brand" href="/">
+            <span class="font-weight-bold">Umpire</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a href="{% url 'metrics:list' %}" class="nav-link">
+                    Metrics
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'accounts:profile' %}" class="nav-link">
+                    Account
+                  </a>
+                </li>
+              {% else %}
+                <li class="class nav-item">
+                  <a href="{% url 'accounts:register' %}" class="nav-link">
+                  <button class="btn btn-primary">Sign up</button>
+                </a></li>
+                <li class="class nav-item">
+                  <a href="{% url 'accounts:login' %}" class="nav-link">
+                    <button class="btn btn-outline-primary">Log in</button>
+                  </a>
+                </li>
+              {% endif %}
+            </ul>
+          </div>
+        </nav>
+    </div>
+  </div>
+</div>

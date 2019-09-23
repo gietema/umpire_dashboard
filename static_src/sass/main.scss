@@ -1,0 +1,38 @@
+$body-bg: #E7EAEA;
+$body-color: #262626;
+
+$theme-colors: (
+  "primary": #2A228E,
+  "danger": #ff4136
+);
+
+
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+h1 {
+    @media (max-width: 576px) {
+        font-size: 18px;
+    }
+}
+h3 {
+    @media (max-width: 576px) {
+        font-size: 16px;
+        font-weight: bold;
+    }
+}
+h4 {
+    @media (max-width: 576px) {
+        font-size: 12px;
+    }
+}
+
+body {
+    font-family: 'Karla', sans-serif;
+}
+
+.hero {
+    height: 40vh;
+    @media (max-width: 576px) {
+        height: auto;
+    }
+}
