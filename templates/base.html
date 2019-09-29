@@ -19,7 +19,9 @@
   <body>
     <div id="app">
       {% include "partials/navbar.html" %}
-      {% block content %}{% endblock %}
+      <div id="content">
+        {% block content %}{% endblock %}
+      </div>
     </div>
 
     {% render_bundle 'main' %}
