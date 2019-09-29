@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div class="card-text">
-                            <demo metric="{{ metric.name }}"></demo>
+                            <graph-component :stats="{{ metric.stats_list }}" name="{{ metric.name|title }}"></graph-component>
                         </div>
                     </div>
                 </div>

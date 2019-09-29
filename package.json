@@ -46,6 +46,8 @@
     "webpack-notifier": "^1.8.0"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1"
+    "bootstrap": "^4.3.1",
+    "chart.js": "^2.8.0",
+    "vue-chartjs": "^3.4.2"
   }
 }
