@@ -8,9 +8,9 @@ var WebpackNotifierPlugin = require('webpack-notifier');
 module.exports = {
     mode: 'development',
     context: __dirname,
-    entry: './assets/js/app',
+    entry: './frontend/src/js/app',
     output: {
-        path: path.resolve('./assets/bundles/'),
+        path: path.resolve('./frontend/build/'),
         filename: 'app.js'
     },
 

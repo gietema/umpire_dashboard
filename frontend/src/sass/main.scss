@@ -6,7 +6,11 @@ $theme-colors: (
   "danger": #ff4136
 );
 
-@import '../../node_modules/bootstrap/scss/bootstrap';
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+
+body {
+    font-family: 'Karla', sans-serif;
+}
 
 h1 {
     @media (max-width: 576px) {
@@ -23,10 +27,6 @@ h4 {
     @media (max-width: 576px) {
         font-size: 12px;
     }
-}
-
-body {
-    font-family: 'Karla', sans-serif;
 }
 
 .hero {
