@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'webpack_loader',
 
-    'articles.apps.ArticlesConfig',
     'users.apps.UsersConfig',
     'metrics.apps.MetricsConfig',
     'stats.apps.StatsConfig',
