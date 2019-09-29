@@ -1,3 +1,5 @@
 .static_src/node_modules
 db.sqlite3
 __pycache__/
+node_modules
+webpack-stats.json

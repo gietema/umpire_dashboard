@@ -11,22 +11,16 @@
                         <h5 class="py-0">{{ metric.name|title }}</h5>
                     </div>
                     <div class="card-body py-1">
-                            {% for stat in stats %}
-                                {% if forloop.counter0 == 0 %}
-                                    <div class="row border-bottom mb-2">
-                                        <div class="col-6">
-                                            Mean: {{ stat.mean }}
-                                        </div>
-                                        <div class="col-6 text-right">
-                                            Standard deviation: {{ stat.std }}
-                                        </div>
-                                    </div>
-                                    <div class="card-text">
-                                {% endif %}
-                                {% if metric.id == stat.metric_id %}
-                                    {{ stat.value }}<br>
-                                {% endif %}
-                            {% endfor %}
+                        <div class="row border-bottom mb-2">
+                            <div class="col-6">
+                                Mean: {{ metric.mean }}
+                            </div>
+                            <div class="col-6 text-right">
+                                Standard deviation: {{ metric.std }}
+                            </div>
+                        </div>
+                        <div class="card-text">
+                            <demo metric="{{ metric.name }}"></demo>
                         </div>
                     </div>
                 </div>
