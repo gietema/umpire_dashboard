@@ -20,13 +20,13 @@
                 <samp>
                     import umpire-ai<br>
                     umpire = Umpire(api_key='{{user.api_key}}')<br>
-                    model = umpire.track(model, model_name='my_model_name', metrics=['accuracy'])
+                    model = umpire.track(model, model_name='my_model_name', metrics=['confidence'])
                 </samp>
             </div>
             Your <code>model</code> should be the object you will use to do a prediction. It doesn't matter if this is a PyTorch or TensorFlow model.
             Umpire will figure out which one you are using.<br>
             Your <code>model_name</code> is just a string to describe the model you are monitoring.<br>
-            Now, use your model to predict something and refresh this page to see the accuracy.
+            Now, use your model to predict something and refresh this page to see the confidence.
             <div class="bg-dark text-white my-2 p-2">
                 <samp>
                     model.predict(img)
