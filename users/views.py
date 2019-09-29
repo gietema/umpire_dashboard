@@ -5,8 +5,10 @@ from django.http import HttpResponse
 from django.views import generic
 from django.utils import timezone
 from django.urls import reverse
+from pdb import set_trace
 
 from .forms import UserCreationForm
+from metrics.models import Metric
 
 # Create your views here.
 User = get_user_model()
@@ -17,6 +19,12 @@ def profile(request):
 
 def welcome(request):
     if request.user.is_authenticated:
+        if request.user.stat_set.count() > 0:
+            return render(request, 'stats/stats_list.html', {
+                'user': request.user,
+                'stats': request.user.stat_set.all(),
+                'metrics': request.user.metrics.all(),
+            }) 
         return render(request, 'users/home.html', {'user': request.user})
     return render(request, 'users/welcome.html')
 

@@ -25,7 +25,7 @@ SECRET_KEY = '=zljxj80pw^1-gn$wjufoih&=2eq^yi&55w$j5cx5a@5b0(df2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,17 +37,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'crispy_forms',
+    'django_extensions',
+    'rest_framework',
 
     'articles.apps.ArticlesConfig',
     'users.apps.UsersConfig',
     'metrics.apps.MetricsConfig',
-    
-    'crispy_forms',
+    'stats.apps.StatsConfig',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 AUTH_USER_MODEL = "users.User" 
 LOGIN_REDIRECT_URL = '/'
+REGISTRATION_AUTO_LOGIN=True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
