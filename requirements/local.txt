@@ -1,0 +1,2 @@
+-r base.txt
+flake8==3.5.0  # https://github.com/PyCQA/flake8
