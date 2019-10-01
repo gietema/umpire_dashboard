@@ -3,20 +3,20 @@
 {% block content %}
 
 <div class="container m-5">
-    <div class="row justify-content-md-center">
-        <div class="col-8">
-            <h1>Profile page</h1>
-            email: {{ user.email }}<br>
-            API key: {{ user.api_key }}
-            <div class="mt-3">
-                <a href="{% url 'logout' %}?next=/">
-                    <button class="btn btn-primary">
-                        Log out
-                    </button>
-                </a>
-            </div>
-        </div>
+  <div class="row justify-content-md-center">
+    <div class="col-8">
+      <h1>Profile page</h1>
+      email: {{ user.email }}<br>
+      API key: {{ user.api_key }}
+      <div class="mt-3">
+        <a href="{% url 'logout' %}?next=/">
+          <button class="btn btn-primary">
+            Log out
+          </button>
+        </a>
+      </div>
     </div>
+  </div>
 </div>
 
 {% endblock %}

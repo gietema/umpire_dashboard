@@ -9,7 +9,6 @@ from django.http import HttpResponse
 
 @csrf_exempt
 def store(request):
-    # check if api key is known
     user = get_object_or_404(User, api_key=request.POST.get('api_key'))
     metric = get_object_or_404(Metric, name=request.POST.get('type'))
     

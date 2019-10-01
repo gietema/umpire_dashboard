@@ -5,21 +5,21 @@
 {% block content %}
 
 <div class="container m-5">
-    <div class="row justify-content-center">
-        <div class="col-4">
-            <h2>Login</h2>
-            <form method="post">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <button class="btn btn-primary btn-block" type="submit">
-                    Login
-                </button>
-            </form>
-            <div class="mt-2">
-                <a href="{% url 'password_reset' %}">Forgot your password?</a>
-            </div>
-        </div>
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <h2>Login</h2>
+      <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-primary btn-block" type="submit">
+          Login
+        </button>
+      </form>
+      <div class="mt-2">
+        <a href="{% url 'password_reset' %}">Forgot your password?</a>
+      </div>
     </div>
+  </div>
 </div>
 
 {% endblock %}
