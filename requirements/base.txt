@@ -1,0 +1,14 @@
+argon2-cffi==19.1.0  # https://github.com/hynek/argon2_cffi
+psycopg2-binary==2.8.3  # https://github.com/psycopg/psycopg2
+ipdb==0.11  # https://github.com/gotcha/ipdb
+
+# Django
+# ------------------------------------------------------------------------------
+Django==2.2.*
+django-environ==0.4.5  # https://github.com/joke2k/django-environ
+django-extensions==2.2.1 # https://github.com/django-extensions/django-extensions
+django-webpack-loader==0.6.0
+
+# Extra
+# ------------------------------------------------------------------------------
+numpy==1.17.2
