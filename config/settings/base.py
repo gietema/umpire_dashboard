@@ -5,7 +5,7 @@ PROJECT_NAME = env('PROJECT_NAME')
 PROJECT_URL = "https://{}.nl".format(env('DOMAIN'))
 
 # WSGI
-WSGI_APPLICATION = 'umpire_dashboard.wsgi.application'
+WSGI_APPLICATION = 'core.wsgi.application'
 
 # LOCAL APPS
 INSTALLED_APPS += [
