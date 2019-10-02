@@ -14,6 +14,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth
 
+import environ
 import os
 import sys
 from django.utils.translation import gettext_lazy as _
@@ -99,7 +100,7 @@ DEBUG = env("DEBUG")
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/1.11/ref/settings/#email
 ADMINS = [
-    ('Admin', env("ADMIN_EMAIL"),
+    ('Admin', env("ADMIN_EMAIL")),
 ]
 
 # https://docs.djangoproject.com/en/2.2/ref/settings/#managers
@@ -264,9 +265,6 @@ TEMPLATES = [
 
 ROOT_URLCONF = "core.urls"
 APPEND_SLASH = True
-
-    'webpack_loader',
-]
 
 ################################################################################
 #                            THIRD PARTY SETTINGS                              #

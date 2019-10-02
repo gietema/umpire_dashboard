@@ -31,6 +31,7 @@ INSTALLED_APPS += ['webpack_loader']
 WEBPACK_LOADER = {
     'DEFAULT': {
         'BUNDLE_DIR_NAME': 'build/',
-        'STATS_FILE': str(ROOT_DIR.path('webpack-stats.json'))),
+        'STATS_FILE': str(ROOT_DIR.path('webpack-stats.json')),
     }
 STATICFILES_DIRS += [str(ROOT_DIR.path('frontend'))]
+}
