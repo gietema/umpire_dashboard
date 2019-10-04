@@ -48,9 +48,9 @@ jobs:
             ssh $SSH_USER@$SSH_HOST "cd $PROJECT_DIR && whoami && git pull"
 workflows:
   version: 2
-  workflow:
+  build-and-deploy:
     jobs:
-    - build
-    - deploy
-      requires:
-        - build
+      - build
+      - deploy:
+          requires:
+            - build
