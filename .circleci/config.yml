@@ -27,7 +27,7 @@ jobs:
             ls
             pip install -r requirements/base.txt
       - save_cache:
-          key: deps1-{{ .Branch }}-{{ checksum "base.txt" }}
+          key: deps1-{{ .Branch }}-{{ checksum "requirements/base.txt" }}
           paths:
             - "venv"
       - run:
