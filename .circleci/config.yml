@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: circleci/python:3.7
         environment:
-          DB_ENGINE: django.db.backends.sqlite3
+          DATABASE_ENGINE: django.db.backends.sqlite3
           DATABASE_USER: root
           DATABASE_NAME: circle_test
           DEBUG: False
@@ -38,3 +38,11 @@ jobs:
       - store_artifacts:
           path: test-reports/
           destination: umpire_dashboard
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - run:
+          name: Deploy Over SSH
+          command: |
+            ssh $SSH_USER@$SSH_HOST "cd $PROJECT_DIR && whoami && git pull"
