@@ -79,11 +79,11 @@ CACHES = {
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": env("DATABASE_NAME", 'umpire'),
-        "USER": env("DATABASE_USER", 'umpire'),
-        "PASSWORD": env("DATABASE_PASSWORD", ''),
-        "HOST": env("DATABASE_HOST", '127.0.0.1'),
-        "PORT": env("DATABASE_PORT", '5432'),
+        "NAME": env("DATABASE_NAME", default='umpire'),
+        "USER": env("DATABASE_USER", default='umpire'),
+        "PASSWORD": env("DATABASE_PASSWORD", default=''),
+        "HOST": env("DATABASE_HOST", default='127.0.0.1'),
+        "PORT": env("DATABASE_PORT", default='5432'),
         "ATOMIC_REQUESTS": True,
         # Lower CONN_MAX_AGE if postgres "too many connections" errors.
         "CONN_MAX_AGE": 60,
