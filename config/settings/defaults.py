@@ -151,7 +151,7 @@ LANGUAGES = (
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/1.11/ref/settings/#http
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [env("DOMAIN")]
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTOCOL", "https")
 SECURE_HSTS_SECONDS = 63072000  # 2 years
