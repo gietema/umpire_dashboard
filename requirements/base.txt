@@ -8,6 +8,7 @@ Django==2.2.*
 django-environ==0.4.5  # https://github.com/joke2k/django-environ
 django-extensions==2.2.1 # https://github.com/django-extensions/django-extensions
 django-webpack-loader==0.6.0
+django-crispy-forms==1.7.2
 
 # Extra
 # ------------------------------------------------------------------------------

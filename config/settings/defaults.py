@@ -78,7 +78,7 @@ CACHES = {
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "ENGINE": env("DB_ENGINE"),
         "NAME": env("DATABASE_NAME"),
         "USER": "",
         "PASSWORD": "",

@@ -1,0 +1,40 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.7
+        environment:
+          DB_ENGINE: django.db.backends.sqlite3
+          DATABASE_USER: root
+          DATABASE_NAME: circle_test
+          DEBUG: False
+          ADMIN_EMAIL: jochem@giete.ma
+          EMAIL_TYPE: mailhog
+          PROJECT_NAME: umpire_dashboard
+          EMAIL_DOMAIN: umpireai.com
+          PROJECT_SLUG: Umpire
+          DOMAIN: ''
+          DJANGO_SECRET_KEY: 'secret key'
+    steps:
+      - checkout
+      - restore_cache:
+          key: deps1-{{ .Branch }}-{{ checksum "requirements/base.txt" }}
+      - run:
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pwd
+            ls
+            pip install -r requirements/base.txt
+      - save_cache:
+          key: deps1-{{ .Branch }}-{{ checksum "base.txt" }}
+          paths:
+            - "venv"
+      - run:
+          name: Running tests
+          command: |
+            . venv/bin/activate
+            python3 manage.py test apps
+      - store_artifacts:
+          path: test-reports/
+          destination: umpire_dashboard
