@@ -46,3 +46,9 @@ jobs:
           name: Deploy Over SSH
           command: |
             ssh $SSH_USER@$SSH_HOST "cd $PROJECT_DIR && whoami && git pull"
+workflows:
+  version: 2
+  workflow:
+    jobs:
+    - build
+    - deploy
