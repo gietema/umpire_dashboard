@@ -82,8 +82,8 @@ DATABASES = {
         "NAME": env("DATABASE_NAME", default='umpire'),
         "USER": env("DATABASE_USER", default='umpire'),
         "PASSWORD": env("DATABASE_PASSWORD", default=''),
-        "HOST": env("DATABASE_HOST", default='127.0.0.1'),
-        "PORT": env("DATABASE_PORT", default='5432'),
+        "HOST": env("DATABASE_HOST"),
+        "PORT": env("DATABASE_PORT"),
         "ATOMIC_REQUESTS": True,
         # Lower CONN_MAX_AGE if postgres "too many connections" errors.
         "CONN_MAX_AGE": 60,
