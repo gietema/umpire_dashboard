@@ -1,8 +1,8 @@
 from .defaults import *
 
 # CONTEXT
-PROJECT_NAME = env('PROJECT_NAME')
-PROJECT_URL = "https://{}.nl".format(env('DOMAIN'))
+PROJECT_NAME = env("PROJECT_NAME")
+PROJECT_URL = env("DOMAIN")
 
 # WSGI
 WSGI_APPLICATION = 'core.wsgi.application'
