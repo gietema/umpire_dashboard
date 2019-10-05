@@ -112,6 +112,11 @@ if env("EMAIL_TYPE") == "mailhog":
     EMAIL_HOST = "localhost"
 elif env("EMAIL_TYPE") == "smtp":
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+    EMAIL_HOST = env('EMAIL_HOST')
+    EMAIL_PORT = env('EMAIL_PORT')
+    EMAIL_HOST_USER = env('EMAIL_HOST')
+    EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+    EMAIL_USE_TLS = env('EMAIL_TLS', default=True)
 else:
     EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
     EMAIL_FILE_PATH = str(ROOT_DIR.path("tmp", "emails"))
@@ -121,7 +126,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DEFAULT_FROM_EMAIL = '{} <info@{}.nl>'.format(env('PROJECT_NAME'), env('EMAIL_DOMAIN'))
 EMAIL_SUBJECT_PREFIX = "[{}]".format(env("PROJECT_SLUG"))
-SERVER_EMAIL = "webmaster@{}.nl".format(env("DOMAIN"))
+SERVER_EMAIL = "webmaster@{}".format(env("DOMAIN"))
 
 # FILE UPLOADS & MEDIA
 # ------------------------------------------------------------------------------
