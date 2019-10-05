@@ -46,7 +46,13 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
-            ssh $SSH_USER@$SSH_HOST "cd $PROJECT_DIR && whoami && git pull"
+            ssh $SSH_USER@$SSH_HOST "
+            cd $PROJECT_DIR &&
+            pip install -r requirements/production.txt &&
+            git pull &&
+            sudo systemctl restart gunicorn
+            "
+            
 workflows:
   version: 2
   build-and-deploy:
