@@ -8,9 +8,9 @@ jobs:
           DATABASE_USER: root
           DATABASE_NAME: circle_test
           DEBUG: False
-          ADMIN_EMAIL: jochem@giete.ma
+          ADMIN_EMAIL: 'foo@bar.com'
           EMAIL_TYPE: mailhog
-          PROJECT_NAME: umpire_dashboard
+          PROJECT_NAME: umpire
           EMAIL_DOMAIN: umpireai.com
           PROJECT_SLUG: Umpire
           DOMAIN: ''
