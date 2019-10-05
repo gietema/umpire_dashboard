@@ -19,16 +19,16 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: deps1-{{ .Branch }}-{{ checksum "requirements/base.txt" }}
+          key: deps1-{{ .Branch }}-{{ checksum "requirements/local.txt" }}
       - run:
           command: |
             python3 -m venv venv
             . venv/bin/activate
             pwd
             ls
-            pip install -r requirements/base.txt
+            pip install -r requirements/local.txt
       - save_cache:
-          key: deps1-{{ .Branch }}-{{ checksum "requirements/base.txt" }}
+          key: deps1-{{ .Branch }}-{{ checksum "requirements/local.txt" }}
           paths:
             - "venv"
       - run:
@@ -36,6 +36,7 @@ jobs:
           command: |
             . venv/bin/activate
             python3 manage.py test apps
+            pylint apps
       - store_artifacts:
           path: test-reports/
           destination: umpire_dashboard
