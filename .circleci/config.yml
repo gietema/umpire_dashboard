@@ -49,7 +49,7 @@ jobs:
             ssh $SSH_USER@$SSH_HOST "
             cd $PROJECT_DIR &&
             sudo /var/www/umpire/umpireenv/bin/pip install -r requirements/production.txt &&
-            sudo git pull &&
+            sudo /usr/bin/git pull &&
             sudo systemctl restart gunicorn
             "
             
