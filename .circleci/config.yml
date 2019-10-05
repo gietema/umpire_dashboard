@@ -15,6 +15,7 @@ jobs:
           PROJECT_SLUG: Umpire
           DOMAIN: ''
           DJANGO_SECRET_KEY: 'secret key'
+          ALLOWED_HOSTS: ['']
     steps:
       - checkout
       - restore_cache:
