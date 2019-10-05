@@ -82,7 +82,7 @@ DATABASES = {
         "NAME": env("DATABASE_NAME", default='umpire'),
         "USER": env("DATABASE_USER", default='umpire'),
         "PASSWORD": env("DATABASE_PASSWORD", default=''),
-        "HOST": "",
+        "HOST": 'localhost',
         "PORT": "",
         "ATOMIC_REQUESTS": True,
         # Lower CONN_MAX_AGE if postgres "too many connections" errors.
@@ -114,7 +114,7 @@ elif env("EMAIL_TYPE") == "smtp":
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
     EMAIL_HOST = env('EMAIL_HOST')
     EMAIL_PORT = env('EMAIL_PORT')
-    EMAIL_HOST_USER = env('EMAIL_HOST')
+    EMAIL_HOST_USER = env('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
     EMAIL_USE_TLS = env('EMAIL_TLS', default=True)
 else:
