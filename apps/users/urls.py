@@ -1,4 +1,5 @@
-from django.urls import include, path
+"""Urls for user"""
+from django.urls import path
 
 from . import views
 

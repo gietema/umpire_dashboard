@@ -1,3 +1,4 @@
+"""Admin config for stats"""
 from django.contrib import admin
 
 from .models import Stat

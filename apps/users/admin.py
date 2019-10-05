@@ -1,17 +1,19 @@
+"""Admin of user"""
 from django.contrib import admin
-from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 
-from .forms import UserCreationForm, UserChangeForm
+from .forms import UserCreationWithoutUsernameForm, \
+    UserWithoutPassWordConfirmationChangeForm
 from .models import User
 
 
-class UserAdmin(UserAdmin):
-    add_form = UserCreationForm
-    form = UserChangeForm
+class UserWithoutUsernameAdmin(UserAdmin):
+    """User admin class. Uses email instead of username"""
+    add_form = UserCreationWithoutUsernameForm
+    form = UserWithoutPassWordConfirmationChangeForm
     model = User
     list_display = ["email"]
     ordering = ("email",)
 
 
-admin.site.register(User, UserAdmin)
+admin.site.register(User, UserWithoutUsernameAdmin)

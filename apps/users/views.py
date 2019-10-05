@@ -1,27 +1,21 @@
+"""Views for user"""
 from django.conf import settings
 from django.core.mail import send_mail
-from django.contrib.auth import login, authenticate, get_user_model
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.views import generic
-from django.utils import timezone
-from django.urls import reverse
 
-
-from .forms import UserCreationForm
-from metrics.models import Metric
+from .forms import UserCreationWithoutUsernameForm
 
 # Create your views here.
-User = get_user_model()
-
 
 def profile(request):
+    """Profile page for user"""
     user = request.user
     return render(request, "users/profile.html", {"user": user})
 
 
 def welcome(request):
+    """Landing / user home page"""
     if request.user.is_authenticated:
         if request.user.stat_set.count() > 0:
             return render(
@@ -38,8 +32,9 @@ def welcome(request):
 
 
 def register(request):
+    """Register user"""
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = UserCreationWithoutUsernameForm(request.POST)
         if form.is_valid():
             form.save()
             email = form.cleaned_data.get("email")
@@ -57,5 +52,5 @@ def register(request):
 
             return redirect("/")
     else:
-        form = UserCreationForm()
+        form = UserCreationWithoutUsernameForm()
     return render(request, "registration/register.html", {"form": form})

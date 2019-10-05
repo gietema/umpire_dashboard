@@ -1,0 +1,50 @@
+[MASTER]
+init-hook='import sys; sys.path.append("apps/")'
+
+ignore=migrations,settings
+
+[MESSAGES CONTROL]
+
+# remove R0801 duplicate code
+disable=I0011,R0901,R0903,RP0001,RP0002,RP0003,RP0101,RP0401,RP0701,RP0801,W0703,W0511,R0801
+
+# I0011: Locally disabling no-member
+
+# R0901: Too many ancestors
+# R0903: Too few public methods
+
+# WARNINGS
+# W0703: Catching too general exception Exception
+# W0511: TODO
+
+# REPORTS
+# RP0001: Messages by category
+# RP0002: % errors / warnings by module
+# RP0003: Messages
+# RP0004: Global evaluation
+# RP0101: Statistics by type
+# RP0401: External dependencies
+# RP0402: Modules dependencies graph
+# RP0701: Raw metrics
+# RP0801: Duplication
+
+[BASIC]
+
+good-names=env,application,app_name,_,urlpatterns,register,UserModel,pk,qs
+
+# Regular expression matching correct function names
+function-rgx=(([a-z][a-z0-9_]{2,50})|(_[a-z0-9_]*))$
+
+[TYPECHECK]
+
+generated-members=all,as_view,id,DoesNotExist,MultipleObjectsReturned,_meta,objects,prefetch_related,select_related,SUCCESS
+ignored-classes=optparse.Values,thread._local,_thread._local,Meta,ForeignKey,HTTPError,__proxy__,ManyToManyField
+ignored-argument-names=arg|args|kwargs|sender|created
+[REPORTS]
+
+
+reports=yes
+
+[CLASSES]
+
+exclude-protected=_meta

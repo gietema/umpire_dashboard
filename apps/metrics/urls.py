@@ -1,3 +1,4 @@
+"""Urls for metric"""
 from django.urls import path
 
 from . import views

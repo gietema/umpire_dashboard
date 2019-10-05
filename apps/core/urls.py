@@ -13,12 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^umpire_dashboard/', include('umpire-dasboard.urls'))
 """
-from django.conf.urls import url
 from django.contrib import admin
 from django.urls import include, path
-from users.views import welcome
-
 from django.contrib.auth.views import PasswordResetView
+
+from users.views import welcome
 
 urlpatterns = [
     path("", welcome, name="welcome"),
