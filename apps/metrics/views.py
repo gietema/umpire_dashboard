@@ -9,5 +9,5 @@ from users.models import User
 
 
 class ListView(LoginRequiredMixin, generic.ListView):
-    context_object_name = 'metrics'
+    context_object_name = "metrics"
     model = Metric

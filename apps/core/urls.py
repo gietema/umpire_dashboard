@@ -21,16 +21,18 @@ from users.views import welcome
 from django.contrib.auth.views import PasswordResetView
 
 urlpatterns = [
-    path('', welcome, name="welcome"),
-    path('accounts/', include('users.urls')),
-    path('admin/', admin.site.urls),
-    path('metrics/', include('metrics.urls')),
-    path('stats/', include('stats.urls')),
-
-    path('password_reset/',	PasswordResetView.as_view(
-        email_template_name='registration/password_reset_email.txt',
-        html_email_template_name='registration/password_reset_email.html'
-    ), name="password_reset"),
-
-    path('', include('django.contrib.auth.urls')),
+    path("", welcome, name="welcome"),
+    path("accounts/", include("users.urls")),
+    path("admin/", admin.site.urls),
+    path("metrics/", include("metrics.urls")),
+    path("stats/", include("stats.urls")),
+    path(
+        "password_reset/",
+        PasswordResetView.as_view(
+            email_template_name="registration/password_reset_email.txt",
+            html_email_template_name="registration/password_reset_email.html",
+        ),
+        name="password_reset",
+    ),
+    path("", include("django.contrib.auth.urls")),
 ]
