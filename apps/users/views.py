@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib.auth import login, authenticate, get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -42,8 +43,8 @@ def register(request):
             send_mail(
                 'A new user registered',
                 f'A new user with email {email} just signed up',
-                'jochem@giete.ma',
-                ['jochem@giete.ma'],
+                settings.DEFAULT_FROM_EMAIL,
+                [settings.ADMINS[0][1]],
                 fail_silently=False,
             )
             
