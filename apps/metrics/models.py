@@ -6,7 +6,6 @@ import numpy as np
 class Metric(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    users = models.ManyToManyField('users.User')
 
     def stats(self) -> np.array:
         return np.array(self.stats_list())
