@@ -48,7 +48,7 @@ jobs:
           command: |
             ssh $SSH_USER@$SSH_HOST "
             cd $PROJECT_DIR &&
-            pip install -r requirements/production.txt &&
+            sudo /var/www/umpire/umpireenv/bin/pip install -r requirements/production.txt &&
             git pull &&
             sudo systemctl restart gunicorn
             "
