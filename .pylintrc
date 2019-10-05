@@ -42,7 +42,8 @@ ignored-classes=optparse.Values,thread._local,_thread._local,Meta,ForeignKey,HTT
 ignored-argument-names=arg|args|kwargs|sender|created
 [REPORTS]
 
-
+msg-template={symbol}:{line:3d},{column:2d}: {obj}: {msg}
+output-format=colorized
 reports=yes
 
 [CLASSES]

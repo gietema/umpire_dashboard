@@ -7,6 +7,7 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     """User model"""
+
     username = None
     email = models.EmailField(
         ("email"), unique=True
@@ -14,8 +15,8 @@ class User(AbstractUser):
     api_key = models.CharField(max_length=500)
     metrics = models.ManyToManyField("metrics.Metric")
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['email']
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = [""]
 
     def __str__(self):
         return self.email

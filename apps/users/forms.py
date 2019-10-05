@@ -6,6 +6,7 @@ from .models import User
 
 class UserCreationWithoutUsernameForm(UserCreationForm):
     """User creation form class. Uses email instead of username and no password confirmation"""
+
     username = None
     password2 = None
 
@@ -26,15 +27,18 @@ class UserCreationWithoutUsernameForm(UserCreationForm):
 
     class Meta:
         """Meta class for User"""
+
         model = User
         fields = ("email",)
 
 
 class UserWithoutPassWordConfirmationChangeForm(UserChangeForm):
     """User change form. Uses email and no password confirmation"""
+
     password2 = None
 
     class Meta:
         """Meta class for user"""
+
         model = User
         fields = ("email",)

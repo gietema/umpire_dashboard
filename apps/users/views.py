@@ -8,6 +8,7 @@ from .forms import UserCreationWithoutUsernameForm
 
 # Create your views here.
 
+
 def profile(request):
     """Profile page for user"""
     user = request.user

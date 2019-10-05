@@ -6,6 +6,7 @@ from .models import Metric
 
 class MetricTestCase(TestCase):
     """Tests for metric"""
+
     def setUp(self):
         self.metric = Metric.objects.create(
             name="confidence", description="Tracks model confidence"
