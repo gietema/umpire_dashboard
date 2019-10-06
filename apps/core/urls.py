@@ -25,6 +25,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("metrics/", include("metrics.urls")),
     path("stats/", include("stats.urls")),
+    path("docs/", include("docs.urls")),
     path(
         "password_reset/",
         PasswordResetView.as_view(

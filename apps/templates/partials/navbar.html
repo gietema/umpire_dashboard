@@ -10,15 +10,20 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a href="{% url 'docs:list' %}" class="nav-link">
+                  <button class="btn">Documentation</button>
+                </a>
+              </li>
               {% if user.is_authenticated %}
                 <li class="nav-item">
                   <a href="{% url 'metrics:list' %}" class="nav-link">
-                    Metrics
+                    <button class="btn">Metrics</button>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{% url 'accounts:profile' %}" class="nav-link">
-                    Account
+                    <button class="btn">Account</button>
                   </a>
                 </li>
               {% else %}

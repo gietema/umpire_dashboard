@@ -13,6 +13,7 @@ INSTALLED_APPS += [
     'users',
     'metrics',
     'stats',
+    'docs',
 ]
 
 # CRISPY FORMS
