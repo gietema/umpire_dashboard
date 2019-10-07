@@ -6,7 +6,20 @@
     <div class="row justify-content-md-center mt-5">
         <div class="col-8">
             {% if metrics %}
-                
+                <p>
+                    <b>
+                        These are the available metrics you can track with umpire.<br>
+                        More metrics and documentation will be added very soon.
+                    </b>
+                </p>
+                {% for metric in metrics %}
+                    <h5>
+                        {{ metric.name|title }}
+                    </h5>
+                    <p>
+                            {{ metric.description }}
+                    </p>
+                {% endfor %}
             {% else %}
                 No metrics available
             {% endif %}
