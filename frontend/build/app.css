@@ -7020,6 +7020,9 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
+body {
+  font-family: 'Karla', sans-serif; }
+
 @media (max-width: 576px) {
   h1 {
     font-size: 18px; } }
@@ -7033,12 +7036,17 @@ a.text-dark:hover, a.text-dark:focus {
   h4 {
     font-size: 12px; } }
 
-body {
-  font-family: 'Karla', sans-serif; }
-
 .hero {
   height: 40vh; }
   @media (max-width: 576px) {
     .hero {
       height: auto; } }
+
+pre {
+  background: #343a40;
+  white-space: normal;
+  color: white;
+  padding: .2rem;
+  margin: .5rem 0;
+  width: 100%; }
 
