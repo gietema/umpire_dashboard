@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block title %} Documentation {% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-md-center mt-5">
+        <div class="col-8">
+            <h1>Documentation</h1>
+            <p>
+                Umpire is a machine learning monitoring tool that you can use to track how well your
+                model is doing in production.<br>
+                Add an umpire to your production code and see the results on your dashboard on this website.<br>
+            </p>
+            <p>
+                Umpire currently only works with fastai v1.0.58 (or a few earlier versions). <br>
+                Support for just Tensorflow (and Keras) or vanilla PyTorch will be added soon.
+            </p>
+            <p>
+                <b>Overview</b><br>
+                <ul>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#setup">Setup</a></li>
+                    <li><a href="#metrics">Metrics</a></li>
+                </ul>
+            </p>
+
+            <h2 id="installation">Installation</h2>
+            <p>
+                <b>Conda</b><br>
+                <code>
+                    conda install umpire
+                </code>
+            </p>
+            <p>
+                <b>PyPI</b><br>
+                <code>
+                    pip install umpire
+                </code>
+            </p>
+
+            <h2 id="setup">Setup</h2>
+            <p>
+                To start tracking your model performance with umpire, it needs:
+                <ul>
+                    <li>
+                        a <a href="https://docs.fast.ai/basic_train.html#Learner">Learner</a> object
+                    </li>
+                    <li>
+                        Your api key
+                    </li>
+                    <li>
+                        a list of the metrics you want to track
+                    </li>
+                </ul>
+            </p>
+            <p>
+                Let's run through an example. <br>
+                <h5>0. Add required libraries</h5>
+                <pre>
+                    from fastai.basics import *<br>
+                    from fastai.vision import *<br>
+                    <br>
+                    # Only needed in production environment, not during step 1<br>
+                    from umpire import Umpire<br>
+                </pre><br>
+                <h5>1. Train a network</h5>
+                <p>
+                    First, set up your learner like you're used to do. In this example, we initialize a basic, resnet34 model with a subset of
+                    MNIST as our data.<br>
+                    If you already have a pretrained model, you can skip this step.
+                </p>
+                <pre>
+                    data_path = untar_data('MNIST_SAMPLE')<br>
+                    data = (ImageList.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;from_folder(data_path)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.split_by_folder('train', 'test')<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.split_none()<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.databunch())<br>
+                    <br>
+                    learn = cnn_learner(data, models.resnet34)<br>
+                    <br>
+                    # we skip learning rate finder and freezing the model here<br>
+                    learn.fit_one_cycle(5, 1e-02)<br>
+                    learn.save('minst_sample_model')<br>
+                    <br>
+                </pre><br>
+                <h5>2. Initialize umpire</h5>
+                So you have a trained model that you want to use in production.<br>
+                Let's use umpire to start tracking how well it is doing.<br>
+                We will start with something simple and just track model confidence,
+                but most of the umpire metrics are just as easy to add.
+                <pre>
+                    learn = load_learner('mnist_sample_model')<br>
+                    <br>
+                    learn = Umpire(api_key={your_api_key}).track(learn, metrics=['confidence'])
+                    <br>
+                </pre>
+                <p>
+                    Behind the scenes, umpire will add callbacks to your learner that will 
+                    make sure you will track your model's confidence score.<br>
+                </p>
+                <h5>3. Use learner to predict something</h5>
+                <pre>
+                    from PIL import Image<br>
+                    learn.predict(Image.open('path/to/image'))
+                </pre>
+                If you go to your umpire dashboard, you will see that umpire is tracking your model's confidence scores.
+            </p>
+
+            
+            <h2 id="metrics">Metrics</h2>
+            <p>
+                No documentation per metric available
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
