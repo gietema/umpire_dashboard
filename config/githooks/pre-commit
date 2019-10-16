@@ -1,0 +1,9 @@
+pylint="pylint apps"
+if ! $pylint; then
+	pylint_errors=1
+fi
+if $pylint_errors == 1; then
+	exit 1
+else
+	echo ""
+fi
